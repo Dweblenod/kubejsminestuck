@@ -12,9 +12,9 @@ import net.minecraftforge.fml.common.Mod;
 public class MinestuckEvents {
     public static EventGroup GROUP = EventGroup.of("MinestuckEvents");
     public static EventHandler ALCHEMY = GROUP.server("alchemy", () -> AlchemyEventJS.class);
-    public static EventHandler ON_ENTRY = GROUP.server("onEntry", () -> SburbEventJS.class);
-    public static EventHandler CONNECTION_CLOSED = GROUP.server("connectionClosed", () -> SburbEventJS.class);
-    public static EventHandler CONNECTION_CREATED = GROUP.server("connectionCreated", () -> SburbEventJS.class);
+    public static EventHandler ON_ENTRY = GROUP.server("onEntry", () -> OnEntryEventJS.class);
+    public static EventHandler CONNECTION_CLOSED = GROUP.server("connectionClosed", () -> ConnectionClosedJS.class);
+    public static EventHandler CONNECTION_CREATED = GROUP.server("connectionCreated", () -> ConnectionCreatedJS.class);
     public static EventHandler GRIST_DROPS = GROUP.server("gristDrops", () -> GristDropsEventJS.class);
 
     @SubscribeEvent
@@ -23,18 +23,18 @@ public class MinestuckEvents {
     }
 
     @SubscribeEvent
-    static void onEntryEvent(SburbEvent.OnEntry event) {
-        ON_ENTRY.post(new SburbEventJS(event));
+    static void onEntryEvent(OnEntryEvent event) {
+        ON_ENTRY.post(new OnEntryEventJS(event));
     }
 
     @SubscribeEvent
-    static void onConnectionClosedEvent(ConnectionClosedEvent event) {
-        CONNECTION_CLOSED.post(new SburbEventJS(event));
+    static void onConnectionClosedEvent(SburbEvent.ConnectionClosed event) {
+        CONNECTION_CLOSED.post(new ConnectionClosedJS(event));
     }
-
+    
     @SubscribeEvent
-    static void onConnectionCreatedEvent(ConnectionCreatedEvent event) {
-        CONNECTION_CREATED.post(new SburbEventJS(event));
+    static void onConnectionCreatedEvent(SburbEvent.ConnectionCreated event) {
+        CONNECTION_CREATED.post(new ConnectionCreatedJS(event));
     }
 
     @SubscribeEvent
