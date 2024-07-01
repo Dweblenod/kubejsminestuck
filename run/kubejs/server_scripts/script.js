@@ -21,3 +21,7 @@ ServerEvents.recipes(event => {
 MinestuckEvents.gristDrops(event => {
   event.newDrops = GristSet.of(new GristAmount("minestuck:build", 1000));
 });
+
+ServerEvents.loaded(event => {
+  DeployList.registerItem("minestuck:carved_heavy_planks", Item.of("minestuck:carved_heavy_planks"), GristSet.of(new GristAmount("minestuck:build", 2)), 0, DeployList.EntryLists.ATHENEUM);
+})

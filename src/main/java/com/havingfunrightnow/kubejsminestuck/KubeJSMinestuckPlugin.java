@@ -6,6 +6,7 @@ import com.mraof.minestuck.api.alchemy.GristAmount;
 import com.mraof.minestuck.api.alchemy.GristSet;
 import com.mraof.minestuck.api.alchemy.GristType;
 import com.mraof.minestuck.api.alchemy.GristTypes;
+import com.mraof.minestuck.computer.editmode.DeployList;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent;
 import dev.latvian.mods.kubejs.recipe.schema.minecraft.CookingRecipeSchema;
@@ -46,6 +47,7 @@ public class KubeJSMinestuckPlugin extends KubeJSPlugin {
     public void registerBindings(BindingsEvent event) {
         event.add("GristSet", GristSet.class);
         event.add("GristAmount", GristAmount.class);
+        event.add("DeployList", DeployList.class);
     }
 
     @Override
