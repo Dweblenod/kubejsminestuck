@@ -14,7 +14,7 @@ public class GristBuilder extends BuilderBase<GristType> {
 
     private float rarity = 0.3F;
     private float value = 2;
-    private int color = 16777215;
+    private int color = 0xFFFFFF;
     private float power = 0f;
     private boolean underlingType = false;
     private Supplier<ItemStack> candy = () -> ItemStack.EMPTY;

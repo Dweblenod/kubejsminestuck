@@ -6,9 +6,7 @@ import com.mraof.minestuck.api.alchemy.*;
 import com.mraof.minestuck.player.*;
 import net.minecraft.server.level.ServerPlayer;
 
-import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
 public class KJSMPlayerData {
@@ -32,6 +30,12 @@ public class KJSMPlayerData {
     }
     public void setBoondollars(long amount) {
         data.setBoondollars(amount);
+    }
+    public void addBoondollars(long amount) {
+        data.addBoondollars(amount);
+    }
+    public void takeBoondollars(long amount) {
+        data.takeBoondollars(amount);
     }
 
     public String getTitle() {
@@ -68,6 +72,9 @@ public class KJSMPlayerData {
         var echeladder = data.getEcheladder();
         echeladder.setByCommand(echeladder.getRung(), progress);
     }
+    public void increaseRungProgress(int progress) {
+        data.getEcheladder().increaseProgress(progress);
+    }
 
     public ImmutableMap<GristType, Long> getGrist() {
         return (ImmutableMap<GristType, Long>) data.getGristCache().getGristSet().asMap();
@@ -78,8 +85,7 @@ public class KJSMPlayerData {
     public long addGrist(GristType type, long amount) {
         return data.getGristCache().addWithinCapacity(new GristAmount(type, amount), GristHelper.EnumSource.CONSOLE).getGrist(type);
     }
-    public MutableGristSet addGrist(Map<String, Double> set) {
-        var gristSet = new DefaultImmutableGristSet(set.entrySet().stream().collect(Collectors.toMap(e -> KubeJSMinestuckPlugin.getGrist(e.getKey()), e -> e.getValue().longValue())));
+    public MutableGristSet addGrist(GristSet gristSet) {
         return data.getGristCache().addWithinCapacity(gristSet, GristHelper.EnumSource.CONSOLE);
     }
 }

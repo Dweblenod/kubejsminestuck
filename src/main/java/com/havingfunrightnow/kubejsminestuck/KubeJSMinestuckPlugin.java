@@ -30,10 +30,10 @@ public class KubeJSMinestuckPlugin extends KubeJSPlugin {
     @Override
     public void registerRecipeSchemas(RegisterRecipeSchemasEvent event) {
         event.namespace(Minestuck.MOD_ID)
-            .register("combination", CombinationRecipeSchema.SCHEMA)
-            .register("grist_cost", GristCostRecipeSchema.GRIST_COST_SCHEMA)
-            .register("wildcard_grist_cost", GristCostRecipeSchema.WILDCARD_GRIST_COST_SCHEMA)
-            .register("unavailable_grist_cost", GristCostRecipeSchema.UNAVAILABLE_GRIST_COST_SCHEMA)
+            .register("combination", KJSMRecipeSchemas.COMBINATION_SCHEMA)
+            .register("grist_cost", KJSMRecipeSchemas.GRIST_COST_SCHEMA)
+            .register("wildcard_grist_cost", KJSMRecipeSchemas.WILDCARD_GRIST_COST_SCHEMA)
+            .register("unavailable_grist_cost", KJSMRecipeSchemas.UNAVAILABLE_GRIST_COST_SCHEMA)
             .register("irradiating", CookingRecipeSchema.SCHEMA)
         ;
     }
