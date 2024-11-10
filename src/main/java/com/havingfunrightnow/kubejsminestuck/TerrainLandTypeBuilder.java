@@ -45,7 +45,7 @@ public class TerrainLandTypeBuilder extends BuilderBase<TerrainLandType> {
     }
 
     @Info("Sets the name(s) that the Land will have when referenced (such as using /checkland).")
-    public TerrainLandTypeBuilder names(String... names) {
+    public TerrainLandTypeBuilder names(String[] names) {
         this.names = names;
         return this;
     }
